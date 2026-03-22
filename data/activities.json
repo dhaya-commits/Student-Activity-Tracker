@@ -1,0 +1,44 @@
+{
+  "uddhav": [
+    {
+      "id": "1773719196708",
+      "category": "conferences",
+      "name": "12 hr hackathon",
+      "date": "2026-03-10",
+      "activityDepartment": "MCA",
+      "activityInstitute": "KEC",
+      "details": "",
+      "docUrl": "/uploads/1773719196692-Dhayananth R R (25MCR021) Prg1.docx",
+      "status": "pending",
+      "createdAt": "2026-03-17T03:46:36.708Z"
+    }
+  ],
+  "mano": [
+    {
+      "id": "1773719973444",
+      "category": "conferences",
+      "name": "dt",
+      "date": "2026-03-17",
+      "activityDepartment": "MCA",
+      "activityInstitute": "Kongu engineering",
+      "details": "",
+      "docUrl": "/uploads/1773719973428-DT Document(1).pdf",
+      "status": "pending",
+      "createdAt": "2026-03-17T03:59:33.444Z"
+    }
+  ],
+  "mano21": [
+    {
+      "id": "1773720395716",
+      "category": "certifications",
+      "name": "Dhayananth R R",
+      "date": "2026-03-17",
+      "activityDepartment": "MCA",
+      "activityInstitute": "Kongu engineering",
+      "details": "",
+      "docUrl": null,
+      "status": "pending",
+      "createdAt": "2026-03-17T04:06:35.716Z"
+    }
+  ]
+}

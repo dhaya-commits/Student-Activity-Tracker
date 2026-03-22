@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Register</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            background: linear-gradient(135deg, #e0eafc 0%, #cfdef3 100%);
+            background-image: url('E:/Downloads/photo-1617297296495-4af2290c2b84.jpeg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            position: relative;
+            min-height: 100vh;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-sizing: border-box;
+        }
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(224,234,252,0.35);
+            backdrop-filter: blur(1.5px) brightness(1.08);
+            z-index: -1;
+        }
+        .register-container {
+            background: #fff;
+            padding: 40px 50px;
+            border-radius: 15px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+            width: 100%;
+            max-width: 450px;
+        }
+        h2 {
+            color: #2d6cdf;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        label {
+            font-weight: bold;
+            color: #333;
+            display: block;
+            margin-top: 15px;
+        }
+        input, select {
+            padding: 8px 12px;
+            border-radius: 6px;
+            border: 1px solid #bfc9d4;
+            margin-top: 5px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        .register-button {
+            background: #2d6cdf;
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            padding: 10px 24px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 20px;
+            width: 100%;
+        }
+        .register-button:hover {
+            background: #1a4fa3;
+        }
+        .icon {
+            margin-right: 8px;
+            color: #2d6cdf;
+        }
+    </style>
+</head>
+<body>
+    <div class="register-container">
+        <h2><i class="fa-solid fa-user-plus icon"></i>Create Account</h2>
+        <form id="register-form">
+            <label for="role"><i class="fa-solid fa-users icon"></i>Register as:</label>
+            <select id="role" name="role" required>
+                <option value="">Select Role</option>
+                <option value="student">Student</option>
+                <option value="admin">Admin/Faculty</option>
+            </select>
+
+            <div id="student-fields" style="display: none;">
+                <label for="register-number"><i class="fa-solid fa-id-card icon"></i>Register Number:</label>
+                <input type="text" id="register-number" name="register-number">
+
+                <label for="student-year"><i class="fa-solid fa-calendar-day icon"></i>Year:</label>
+                <select id="student-year" name="student-year">
+                    <option value="">Select Year</option>
+                    <option value="1">1st Year</option>
+                    <option value="2">2nd Year</option>
+                    <option value="3">3rd Year</option>
+                    <option value="4">4th Year</option>
+                </select>
+
+                <label for="student-section"><i class="fa-solid fa-users-viewfinder icon"></i>Section:</label>
+                <input type="text" id="student-section" name="student-section" placeholder="e.g., A, B">
+            </div>
+            
+            <label for="department"><i class="fa-solid fa-building-user icon"></i>Department:</label>
+            <input type="text" id="department" name="department" required>
+
+            <div id="admin-fields" style="display: none;">
+                <label for="faculty-id" id="faculty-id-label"><i class="fa-solid fa-key icon"></i>Faculty ID:</label>
+                <input type="password" id="faculty-id" name="faculty-id" placeholder="Enter secret faculty ID">
+            </div>
+
+            <label for="college-name"><i class="fa-solid fa-school icon"></i>College Name:</label>
+            <input type="text" id="college-name" name="college-name" required>
+
+            <label for="name"><i class="fa-solid fa-user icon"></i>Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email"><i class="fa-solid fa-envelope icon"></i>Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="username"><i class="fa-solid fa-user-tag icon"></i>Username:</label>
+            <input type="text" id="username" name="username" required>
+
+            <label for="password"><i class="fa-solid fa-lock icon"></i>Password:</label>
+            <input type="password" id="password" name="password" required>
+
+            <button type="submit" class="register-button">Register</button>
+        </form>
+    </div>
+
+    <script>
+        // This part of the script controls the form UI and can be kept
+        const roleSelect = document.getElementById('role');
+        const studentFields = document.getElementById('student-fields');
+        const registerNumberInput = document.getElementById('register-number');
+        const adminFields = document.getElementById('admin-fields');
+        const facultyIdInput = document.getElementById('faculty-id');
+
+        roleSelect.addEventListener('change', function() {
+            if (this.value === 'student') {
+                studentFields.style.display = 'block';
+                registerNumberInput.required = true;
+                adminFields.style.display = 'none';
+                facultyIdInput.required = false;
+            } else if (this.value === 'admin') {
+                studentFields.style.display = 'none';
+                registerNumberInput.required = false;
+                adminFields.style.display = 'block';
+                facultyIdInput.required = true;
+            } else {
+                studentFields.style.display = 'none';
+                adminFields.style.display = 'none';
+                facultyIdInput.required = false;
+            }
+        });
+        
+        // --- THIS IS THE UPDATED PART ---
+        // It replaces the old localStorage logic with a fetch call to your backend
+        document.getElementById('register-form').addEventListener('submit', async function(event) {
+            event.preventDefault();
+
+            const newUser = {
+                role: document.getElementById('role').value,
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                username: document.getElementById('username').value,
+                password: document.getElementById('password').value,
+                collegeName: document.getElementById('college-name').value.trim(),
+                department: document.getElementById('department').value.trim().toUpperCase(),
+                registerNumber: document.getElementById('register-number').value,
+                year: document.getElementById('student-year').value,
+                section: document.getElementById('student-section').value.trim().toUpperCase()
+            };
+
+            // This part is new and talks to the backend
+            try {
+                const response = await fetch('http://localhost:5000/api/auth/register', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(newUser)
+                });
+
+                const result = await response.json();
+
+                if (response.ok) {
+                    alert('Registration successful! You can now log in.');
+                    window.location.href = 'wen3.html'; // Redirect to login page
+                } else {
+                    // Show specific error from server
+                    alert('Registration failed: ' + result.message);
+                }
+            } catch (error) {
+                console.error('Error during registration:', error);
+                alert('An error occurred. Please check the console and try again.');
+            }
+        });
+    </script>
+</body>
+</html>

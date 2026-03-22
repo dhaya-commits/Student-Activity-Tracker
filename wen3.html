@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            background: linear-gradient(135deg, #e0eafc 0%, #cfdef3 100%);
+            background-image: url('E:/Downloads/photo-1617297296495-4af2290c2b84.jpeg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            min-height: 100vh;
+            margin: 0;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(224,234,252,0.35);
+            backdrop-filter: blur(1.5px) brightness(1.08);
+            z-index: -1;
+        }
+        .login-widgets-container {
+            display: flex;
+            gap: 40px;
+            justify-content: center;
+            align-items: center;
+            margin-top: 60px;
+            margin-bottom: 30px;
+        }
+        .login-widget {
+            background: rgba(255,255,255,0.97);
+            border-radius: 20px;
+            box-shadow: 0 8px 32px rgba(44,108,223,0.14), 0 1.5px 8px rgba(0,0,0,0.10);
+            padding: 40px 35px 30px 35px;
+            min-width: 320px;
+            max-width: 350px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: transform 0.2s, box-shadow 0.2s;
+            position: relative;
+        }
+        .login-widget:hover {
+            transform: translateY(-6px) scale(1.03);
+            box-shadow: 0 16px 48px rgba(44,108,223,0.18), 0 3px 16px rgba(0,0,0,0.12);
+        }
+        .login-widget h2 {
+            color: #2d6cdf;
+            margin-bottom: 18px;
+            font-size: 1.6rem;
+            font-weight: bold;
+            text-align: center;
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        label {
+            font-weight: bold;
+            color: #2d6cdf;
+            margin-bottom: 6px;
+            display: flex;
+            align-items: center;
+            gap: 7px;
+            font-size: 1rem;
+        }
+        input[type="text"], input[type="password"] {
+            padding: 10px 14px;
+            border-radius: 8px;
+            border: 1.5px solid #bfc9d4;
+            margin-bottom: 18px;
+            width: 100%;
+            font-size: 1rem;
+            box-sizing: border-box;
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+        input[type="text"]:focus, input[type="password"]:focus {
+            border-color: #2d6cdf;
+            box-shadow: 0 0 8px #2d6cdf33;
+        }
+        .login-button {
+            background: linear-gradient(90deg, #2d6cdf 60%, #4f8cff 100%);
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            padding: 12px 0;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 10px;
+            box-shadow: 0 2px 8px rgba(44,108,223,0.10);
+            transition: background 0.3s, box-shadow 0.2s, transform 0.2s;
+        }
+        .login-button:hover {
+            background: linear-gradient(90deg, #4f8cff 60%, #2d6cdf 100%);
+            box-shadow: 0 4px 16px rgba(44,108,223,0.18);
+            transform: scale(1.04);
+        }
+        .icon {
+            font-size: 1.5rem;
+            color: #2d6cdf;
+        }
+        .register-section {
+            background: rgba(255,255,255,0.97);
+            border-radius: 18px;
+            box-shadow: 0 4px 16px rgba(44,108,223,0.10);
+            padding: 22px 0 28px 0;
+            width: 60%;
+            margin: 0 auto;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .register-section p {
+            font-size: 1.1rem;
+            color: #333;
+            margin-bottom: 12px;
+        }
+        .register-button {
+            background: #4caf50;
+            color: #fff;
+            border: none;
+            border-radius: 7px;
+            padding: 10px 32px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 2px 8px rgba(44,108,223,0.10);
+            transition: background 0.3s, box-shadow 0.2s, transform 0.2s;
+        }
+        .register-button:hover {
+            background: #388e3c;
+            box-shadow: 0 4px 16px rgba(44,108,223,0.18);
+            transform: scale(1.04);
+        }
+        @media (max-width: 900px) {
+            .login-widgets-container {
+                flex-direction: column;
+                gap: 30px;
+            }
+            .register-section {
+                width: 90%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="login-widgets-container">
+        <div class="login-widget">
+            <h2><i class="fa-solid fa-user-graduate icon"></i>Student Login</h2>
+            <form id="student-login-form">
+                <label for="student-username"><i class="fa-solid fa-user icon"></i>Username:</label>
+                <input type="text" id="student-username" name="username" required>
+                <label for="student-password"><i class="fa-solid fa-lock icon"></i>Password:</label>
+                <input type="password" id="student-password" name="password" required>
+                <button type="submit" class="login-button">Login</button>
+            </form>
+        </div>
+
+        <div class="login-widget">
+            <h2><i class="fa-solid fa-user-shield icon"></i>Admin Login</h2>
+            <form id="admin-login-form">
+                <label for="admin-username"><i class="fa-solid fa-user icon"></i>Username:</label>
+                <input type="text" id="admin-username" name="username" required>
+                <label for="admin-password"><i class="fa-solid fa-lock icon"></i>Password:</label>
+                <input type="password" id="admin-password" name="password" required>
+                <button type="submit" class="login-button">Login</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="register-section">
+        <p>Don't have an account? Please register.</p>
+        <a href="register.html" class="register-button">Register</a>
+    </div>
+
+    <script>
+        // --- THIS IS THE UPDATED PART ---
+
+        // Student Login Logic
+        document.getElementById('student-login-form').addEventListener('submit', async function(event) {
+            event.preventDefault();
+            const username = document.getElementById('student-username').value;
+            const password = document.getElementById('student-password').value;
+
+            try {
+                const response = await fetch('http://localhost:5000/api/auth/login', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ username, password })
+                });
+                const result = await response.json();
+                if (response.ok && result.user.role === 'student') {
+                    localStorage.setItem('token', result.token);
+                    localStorage.setItem('currentUser', JSON.stringify(result.user));
+                    window.location.href = 'Student page.html';
+                } else {
+                    alert('Invalid student username or password.');
+                }
+            } catch (error) {
+                alert('An error occurred during login.');
+            }
+        });
+
+        // Admin Login Logic
+        document.getElementById('admin-login-form').addEventListener('submit', async function(event) {
+            event.preventDefault();
+            const username = document.getElementById('admin-username').value;
+            const password = document.getElementById('admin-password').value;
+            
+            try {
+                const response = await fetch('http://localhost:5000/api/auth/login', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ username, password })
+                });
+                const result = await response.json();
+                if (response.ok && result.user.role === 'admin') {
+                    localStorage.setItem('token', result.token);
+                    localStorage.setItem('currentUser', JSON.stringify(result.user));
+                    window.location.href = 'admin page.html';
+                } else {
+                    alert('Invalid admin username or password.');
+                }
+            } catch (error) {
+                alert('An error occurred during login.');
+            }
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,72 @@
+{
+  "1773462413862": {
+    "id": "1773462413862",
+    "role": "student",
+    "name": "DHAYANANTH R R",
+    "email": "dhaya481251@gmail.com",
+    "username": "dhaya",
+    "password": "$2a$10$1YNoMJaasgOIyq4mdEt24.2CFGIbbz.e2T6XmnKapsAxCQnI67vBK",
+    "collegeName": "Kongu Enineering College",
+    "department": "MCA",
+    "registerNumber": "25MCR021",
+    "year": "1",
+    "section": "A",
+    "createdAt": "2026-03-14T04:26:53.862Z"
+  },
+  "1773719148844": {
+    "id": "1773719148844",
+    "role": "student",
+    "name": "DHAYANANTH R R",
+    "email": "dhayananthrr.26mca@kongu.edu",
+    "username": "uddhav",
+    "password": "$2a$10$OE4ZsNUxrXz4si1fO37x4ORpex6F1aEvbA4nPRq4yPXxj4AjJQzGW",
+    "collegeName": "Kongu Enineering College",
+    "department": "MCA",
+    "registerNumber": "25MCR021",
+    "year": "1",
+    "section": "A",
+    "createdAt": "2026-03-17T03:45:48.844Z"
+  },
+  "1773719288639": {
+    "id": "1773719288639",
+    "role": "admin",
+    "name": "manoj",
+    "email": "manojkumars.25mca@kongu.edu",
+    "username": "manoj",
+    "password": "$2a$10$7Gr2512hcEt46vGfzt08t.VNZFguLQ418LQK5onD/p055SD39xK9i",
+    "collegeName": "Kongu Enineering College",
+    "department": "MCA",
+    "registerNumber": null,
+    "year": null,
+    "section": null,
+    "createdAt": "2026-03-17T03:48:08.639Z"
+  },
+  "1773719917107": {
+    "id": "1773719917107",
+    "role": "student",
+    "name": "manoj",
+    "email": "manoj@gmail.com",
+    "username": "mano",
+    "password": "$2a$10$nsVADNu7SXa0WxEaFPCYmuHjndwwS8iBYM0idNPWm84Zx9dNGJOua",
+    "collegeName": "Kongu Arts and Science College",
+    "department": "MCA",
+    "registerNumber": "22UCOS063",
+    "year": "1",
+    "section": "A",
+    "createdAt": "2026-03-17T03:58:37.107Z"
+  },
+  "1773720043342": {
+    "id": "1773720043342",
+    "role": "admin",
+    "name": "Manoj",
+    "email": "manojkumars1.25mca@kongu.edu",
+    "username": "mano21",
+    "password": "$2a$10$ZZxqd5HRqZ.JjcDt0tN0w.Upi.DBFdU1aBnoPQdzz7D0XeZ3nGJ4K",
+    "collegeName": "Kongu engineering",
+    "department": "MCA",
+    "registerNumber": null,
+    "year": null,
+    "section": null,
+    "createdAt": "2026-03-17T04:00:43.342Z"
+  }
+}
